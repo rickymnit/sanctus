@@ -52,7 +52,7 @@ export default function Sets() {
 
   return (
     <section id="sets" className="bg-ink-2 py-24 md:py-36">
-      <SectionHead index="04" label="Sets" title="Recorded Sets" aside="Video" />
+      <SectionHead index="05" label="Sets" title="Recorded Sets" aside="Video" />
 
       <div className="gutter mx-auto mt-12 grid max-w-site gap-x-8 gap-y-14 md:grid-cols-12">
         <Reveal className="md:col-span-8">

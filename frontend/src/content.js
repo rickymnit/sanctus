@@ -22,18 +22,27 @@ export const CONTACT = {
 export const BIO = {
   roles: ['DJ', 'Producer', 'Selecta'],
   lead:
-    'SANCTÜS is a Jaipur-based DJ, Producer & Selecta crafting immersive electronic music. His sound moves through House, UK Garage, Drum & Bass, Techno, and Trance, blending underground influences with selected Global edits.',
-  body:
-    'Driven by groove, energy, and storytelling, SANCTÜS focuses on creating memorable dancefloor moments through thoughtful track selection, seamless transitions, and a deep appreciation for contemporary electronic music culture. Each set is designed to balance musical depth with crowd connection, delivering experiences that resonate long after the night ends.',
+    'SANCTÜS is a Jaipur-based DJ, producer and selecta exploring the evolving sounds of electronic music. Moving between House, UK Garage, Drum & Bass, HardGroove and UK Bass, his sets bring together underground sounds, unexpected transitions and carefully curated global edits. Driven by rhythm, energy and an instinct for storytelling, SANCTÜS approaches every set as a journey rather than a genre. Blending deep selections with high-energy moments, his sound is rooted in underground culture while remaining open to the unexpected. From intimate sessions to late-night dancefloors, the focus remains the same: discovering sounds, creating connections and leaving a lasting impression.',
 };
 
+// Venues played, in display order. `note` shows as a tag (e.g. residency).
+export const VENUES = [
+  { name: 'Amano', note: 'F/R Resident DJ' },
+  { name: 'Paro' },
+  { name: 'Dyore' },
+  { name: 'Savanna' },
+  { name: 'HOP (House of People)' },
+  { name: "D'SURA" },
+  { name: "Garrison's" },
+];
+
 export const GENRES = [
-  { name: 'House', bpm: '120–126', note: 'Deep, soulful, Afro & Latin-leaning grooves' },
-  { name: 'UK Garage', bpm: '130–134', note: 'Shuffled 2-step swing and bass weight' },
-  { name: 'Drum & Bass', bpm: '170–175', note: 'Liquid rollers through to jungle breaks' },
-  { name: 'Techno', bpm: '128–138', note: 'Detroit lineage, hypnotic and driving' },
-  { name: 'Trance', bpm: '136–140', note: 'Euphoric builds for peak-time release' },
-  { name: 'Global Edits', bpm: 'Var.', note: 'Selected edits from around the world' },
+  { name: 'House' },
+  { name: 'UK Garage' },
+  { name: 'Drum & Bass' },
+  { name: 'HardGroove' },
+  { name: 'UK Bass' },
+  { name: 'Global Edits' },
 ];
 
 // YouTube sets, in display order. The first one is featured.

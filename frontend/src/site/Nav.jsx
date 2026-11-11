@@ -6,6 +6,7 @@ import { openBooking } from './BookSheet';
 
 const ITEMS = [
   { href: '#about', label: 'About' },
+  { href: '#venues', label: 'Venues' },
   { href: '#sound', label: 'Sound' },
   { href: '#radio', label: 'Radio' },
   { href: '#sets', label: 'Sets' },

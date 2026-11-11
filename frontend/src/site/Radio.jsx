@@ -58,7 +58,7 @@ export default function Radio() {
 
   return (
     <section id="radio" className="py-24 md:py-36">
-      <SectionHead index="03" label="Radio" aside="Mixcloud · YouTube" />
+      <SectionHead index="04" label="Radio" aside="Mixcloud · YouTube" />
 
       <div className="gutter mx-auto mt-12 max-w-site">
         {/* Show header */}

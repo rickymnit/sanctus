@@ -42,7 +42,7 @@ export default function Booking() {
       <header className="gutter mx-auto max-w-site">
         <div className="flex items-center justify-between border-t border-ink/15 pt-4">
           <span className="label text-ink/60">
-            <span className="text-signal">06</span> / Bookings
+            <span className="text-signal">07</span> / Bookings
           </span>
           <span className="label hidden text-ink/60 sm:block">Open for 2026–27</span>
         </div>

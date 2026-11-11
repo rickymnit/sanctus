@@ -37,7 +37,7 @@ export default function Hero() {
         <motion.p className="label col-span-2 hidden text-bone md:block" {...enter(0.4)}>
           House · UK Garage · Drum &amp; Bass
           <br />
-          Techno · Trance · Global Edits
+          HardGroove · UK Bass · Global Edits
         </motion.p>
       </div>
 

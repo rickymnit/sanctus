@@ -2,6 +2,7 @@ import Nav from './site/Nav';
 import Hero from './site/Hero';
 import Ticker from './site/Ticker';
 import About from './site/About';
+import Venues from './site/Venues';
 import Sound from './site/Sound';
 import Radio from './site/Radio';
 import Sets from './site/Sets';
@@ -24,6 +25,7 @@ export default function App() {
           <Hero />
           <Ticker />
           <About />
+          <Venues />
           <Sound />
           <Radio />
           <Sets />

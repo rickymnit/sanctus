@@ -5,6 +5,7 @@ import { Reveal, SectionHead } from './ui';
 const FACTS = [
   ['Based', CONTACT.city],
   ['Roles', BIO.roles.join(', ')],
+  ['Resident', 'Amano (F/R Resident DJ)'],
   ['Shows', 'SANCTÜS Radio, on Mixcloud & YouTube'],
   ['Plays', 'Clubs, house parties, sundowners, festivals'],
 ];
@@ -31,11 +32,8 @@ export default function About() {
         </Reveal>
 
         <div className="md:col-span-7 md:pl-8 lg:pl-16">
-          <Reveal as="p" className="text-[clamp(1.5rem,2.6vw,2.4rem)] font-medium leading-[1.2] tracking-tight">
+          <Reveal as="p" className="text-[clamp(1.15rem,1.6vw,1.6rem)] font-medium leading-[1.4] tracking-tight">
             {BIO.lead}
-          </Reveal>
-          <Reveal as="p" delay={0.1} className="mt-8 max-w-2xl text-lg leading-relaxed text-bone-dim">
-            {BIO.body}
           </Reveal>
 
           <Reveal as="dl" delay={0.15} className="mt-12">
