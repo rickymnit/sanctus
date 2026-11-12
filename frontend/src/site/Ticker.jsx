@@ -1,7 +1,8 @@
-import { GENRES } from '../content';
+import { useContent } from '../cms/ContentProvider';
 
 export default function Ticker() {
-  const row = [...GENRES.map((g) => g.name), 'SANCTÜS Radio'];
+  const { genres } = useContent();
+  const row = [...genres.map((g) => g.name), 'SANCTÜS Radio'];
   const items = [...row, ...row, ...row, ...row];
   return (
     <div className="overflow-hidden border-y border-line bg-signal text-ink" aria-hidden="true">

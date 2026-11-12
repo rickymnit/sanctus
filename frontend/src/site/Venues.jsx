@@ -1,7 +1,8 @@
-import { VENUES } from '../content';
+import { useContent } from '../cms/ContentProvider';
 import { Reveal, SectionHead } from './ui';
 
 export default function Venues() {
+  const { venues: VENUES } = useContent();
   return (
     <section id="venues" className="py-14 md:py-20">
       <SectionHead index="02" label="Venues" aside={`${VENUES.length} venues`} />
@@ -12,9 +13,9 @@ export default function Venues() {
         </Reveal>
 
         <Reveal as="ul" delay={0.05} className="flex flex-wrap gap-2 md:col-span-9 md:gap-3">
-          {VENUES.map((v) => (
+          {VENUES.map((v, i) => (
             <li
-              key={v.name}
+              key={`${v.name}-${i}`}
               className={`flex items-center gap-3 border px-4 py-2.5 ${
                 v.note ? 'border-signal bg-signal text-ink' : 'border-line text-bone'
               }`}

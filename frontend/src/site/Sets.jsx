@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowUpRight, Play, X } from 'lucide-react';
-import { LINKS, SETS } from '../content';
+import { useContent } from '../cms/ContentProvider';
+
+const thumb = (s) => s.image || `https://i.ytimg.com/vi/${s.id}/hqdefault.jpg`;
 import { Reveal, SectionHead } from './ui';
 
 function Thumb({ set, onOpen, large = false }) {
@@ -9,7 +11,7 @@ function Thumb({ set, onOpen, large = false }) {
     <button onClick={() => onOpen(set)} className="group block w-full text-left" aria-label={`Watch ${set.title}`}>
       <div className="relative overflow-hidden bg-ink-3">
         <img
-          src={set.image}
+          src={thumb(set)}
           alt=""
           loading="lazy"
           className="aspect-video w-full object-cover transition duration-700 group-hover:scale-[1.03] group-hover:brightness-75"
@@ -37,6 +39,7 @@ function Thumb({ set, onOpen, large = false }) {
 
 export default function Sets() {
   const [open, setOpen] = useState(null);
+  const { sets: SETS, links: LINKS } = useContent();
   const [featured, ...rest] = SETS;
 
   useEffect(() => {
@@ -55,18 +58,20 @@ export default function Sets() {
       <SectionHead index="05" label="Sets" title="Recorded Sets" aside="Video" />
 
       <div className="gutter mx-auto mt-12 grid max-w-site gap-x-8 gap-y-14 md:grid-cols-12">
-        <Reveal className="md:col-span-8">
-          <Thumb set={featured} onOpen={setOpen} large />
-        </Reveal>
+        {featured && (
+          <Reveal className="md:col-span-8">
+            <Thumb set={featured} onOpen={setOpen} large />
+          </Reveal>
+        )}
         <div className="grid gap-y-14 md:col-span-4">
           {rest.slice(0, 2).map((s, i) => (
-            <Reveal key={s.id} delay={0.05 * (i + 1)}>
+            <Reveal key={`${s.id}-${i}`} delay={0.05 * (i + 1)}>
               <Thumb set={s} onOpen={setOpen} />
             </Reveal>
           ))}
         </div>
         {rest.slice(2).map((s, i) => (
-          <Reveal key={s.id} delay={0.05 * i} className="md:col-span-4">
+          <Reveal key={`${s.id}-${i}`} delay={0.05 * i} className="md:col-span-4">
             <Thumb set={s} onOpen={setOpen} />
           </Reveal>
         ))}

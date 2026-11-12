@@ -1,14 +1,15 @@
-import { CONTACT, LINKS } from '../content';
+import { useContent } from '../cms/ContentProvider';
 
-const SOCIALS = [
-  ['Instagram', '@sanctus_dj', LINKS.instagram],
-  ['Radio', '@sanctus.radio', LINKS.instagramRadio],
-  ['Mixcloud', 'sanctus_dj', LINKS.mixcloud],
-  ['SoundCloud', 'sanctus-dj', LINKS.soundcloud],
-  ['YouTube', '@sanctusdj', LINKS.youtube],
-];
 
 export default function Footer() {
+  const { contact: CONTACT, links: LINKS, handles } = useContent();
+  const SOCIALS = [
+    ['Instagram', handles.instagram, LINKS.instagram],
+    ['Radio', handles.instagramRadio, LINKS.instagramRadio],
+    ['Mixcloud', handles.mixcloud, LINKS.mixcloud],
+    ['SoundCloud', handles.soundcloud, LINKS.soundcloud],
+    ['YouTube', handles.youtube, LINKS.youtube],
+  ].filter(([, , href]) => href);
   return (
     <footer className="overflow-hidden pt-20">
       <div className="gutter mx-auto grid max-w-site gap-10 md:grid-cols-12">

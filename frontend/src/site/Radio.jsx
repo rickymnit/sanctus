@@ -1,5 +1,5 @@
 import { ArrowUpRight, Pause, Play } from 'lucide-react';
-import { LINKS } from '../content';
+import { useContent } from '../cms/ContentProvider';
 import { formatDate, formatLength, pad, useRadio } from './radio';
 import { Reveal, SectionHead } from './ui';
 
@@ -53,6 +53,7 @@ function Episode({ ep, active, onPlay }) {
 
 export default function Radio() {
   const { episodes, playing, play, stop } = useRadio();
+  const { links: LINKS, handles, radio } = useContent();
   const latest = episodes[0];
   const isLatestPlaying = playing?.key === latest?.key;
 
@@ -69,15 +70,14 @@ export default function Radio() {
               <span className="display mt-[0.15em] block font-sans text-signal">Radio</span>
             </Reveal>
             <Reveal as="p" delay={0.1} className="mt-8 max-w-xl text-lg leading-relaxed text-bone-dim">
-              A regular mix series built around one genre per episode, from Gqom and 3-step to Detroit
-              techno and nu disco. New episodes land on Mixcloud and YouTube.
+              {radio.intro}
             </Reveal>
             <Reveal delay={0.15} className="mt-8 flex flex-wrap gap-3">
               <a href={LINKS.mixcloud} target="_blank" rel="noopener noreferrer" className="btn-ghost">
                 Follow on Mixcloud <ArrowUpRight size={14} />
               </a>
               <a href={LINKS.instagramRadio} target="_blank" rel="noopener noreferrer" className="btn-ghost">
-                @sanctus.radio <ArrowUpRight size={14} />
+                {handles.instagramRadio} <ArrowUpRight size={14} />
               </a>
               <a href={LINKS.youtube} target="_blank" rel="noopener noreferrer" className="btn-ghost">
                 YouTube <ArrowUpRight size={14} />

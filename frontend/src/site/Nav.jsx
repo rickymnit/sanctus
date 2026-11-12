@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Download, Menu, X } from 'lucide-react';
-import { LINKS } from '../content';
+import { useContent } from '../cms/ContentProvider';
 import { openBooking } from './BookSheet';
 
 const ITEMS = [
@@ -16,6 +16,7 @@ const ITEMS = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { links: LINKS } = useContent();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);

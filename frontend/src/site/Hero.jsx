@@ -1,11 +1,14 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowDownRight, Play } from 'lucide-react';
-import { BIO } from '../content';
+import { useContent } from '../cms/ContentProvider';
 import { pad, useRadio } from './radio';
 import { openBooking } from './BookSheet';
 
 export default function Hero() {
   const { episodes, play } = useRadio();
+  const { hero, about, genres } = useContent();
+  const names = genres.map((g) => g.name);
+  const half = Math.ceil(names.length / 2);
   const latest = episodes[0];
   const reduce = useReducedMotion();
   const enter = (d) =>
@@ -16,9 +19,10 @@ export default function Hero() {
       {/* Photo */}
       <div className="absolute inset-0">
         <img
-          src="/img/crowd.webp"
-          alt="SANCTÜS mixing for a crowd at an open-air night in Jaipur"
-          className="h-full w-full object-cover object-[50%_30%] grayscale contrast-[1.15] brightness-[0.55]"
+          src={hero.image}
+          alt={hero.imageAlt}
+          style={{ objectPosition: hero.focus || '50% 30%' }}
+          className="h-full w-full object-cover grayscale contrast-[1.15] brightness-[0.55]"
           fetchpriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-ink/60" />
@@ -27,17 +31,17 @@ export default function Hero() {
       {/* Meta row */}
       <div className="gutter relative mx-auto mt-24 grid w-full max-w-site grid-cols-2 gap-6 md:grid-cols-4">
         <motion.p className="label text-bone" {...enter(0.2)}>
-          {BIO.roles.join(' / ')}
+          {about.roles.join(' / ')}
         </motion.p>
         <motion.p className="label text-bone" {...enter(0.3)}>
-          Jaipur, IN
+          {hero.location}
           <br />
-          <span className="text-bone-dim">26.91°N 75.79°E</span>
+          <span className="text-bone-dim">{hero.coordinates}</span>
         </motion.p>
         <motion.p className="label col-span-2 hidden text-bone md:block" {...enter(0.4)}>
-          House · UK Garage · Drum &amp; Bass
+          {names.slice(0, half).join(' · ')}
           <br />
-          HardGroove · UK Bass · Global Edits
+          {names.slice(half).join(' · ')}
         </motion.p>
       </div>
 
@@ -72,7 +76,7 @@ export default function Hero() {
 
         <div className="gutter mx-auto flex max-w-site flex-col gap-4 border-t border-line py-5 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-md text-sm text-bone-dim">
-            Immersive electronic music: groove, energy and storytelling for the dancefloor.
+            {hero.tagline}
           </p>
           <div className="flex gap-3">
             <a href="#radio" className="btn-ghost h-11 flex-1 sm:flex-none">Listen</a>

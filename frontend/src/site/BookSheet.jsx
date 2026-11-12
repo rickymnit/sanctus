@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight, Instagram, MessageCircle, Phone, X } from 'lucide-react';
-import { CONTACT, LINKS } from '../content';
+import { useContent } from '../cms/ContentProvider';
 
 const EVENT = 'sanctus:book';
 
@@ -10,7 +10,8 @@ export const openBooking = () => window.dispatchEvent(new Event(EVENT));
 
 const GREETING = "Hi SANCTÜS, I'd like to book you for an event.";
 
-const OPTIONS = [
+
+const bookingOptions = (CONTACT, LINKS, handles) => [
   {
     label: 'Message on WhatsApp',
     detail: CONTACT.phoneDisplay,
@@ -26,7 +27,7 @@ const OPTIONS = [
   },
   {
     label: 'Message on Instagram',
-    detail: '@sanctus_dj',
+    detail: handles.instagram,
     href: LINKS.instagramDm,
     icon: Instagram,
     external: true,
@@ -34,6 +35,8 @@ const OPTIONS = [
 ];
 
 export default function BookSheet() {
+  const { contact, links, handles } = useContent();
+  const OPTIONS = bookingOptions(contact, links, handles);
   const [open, setOpen] = useState(false);
   const firstRef = useRef(null);
 

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ArrowUpRight, Download, Mail, MessageCircle } from 'lucide-react';
-import { CONTACT, EVENT_TYPES, LINKS } from '../content';
+import { useContent } from '../cms/ContentProvider';
 import { Reveal, SectionHead } from './ui';
 
 // No backend needed: the form composes a message and hands it to
@@ -20,6 +20,8 @@ const compose = (f) =>
     .join('\n');
 
 export default function Booking() {
+  const { contact: CONTACT, links: LINKS, booking } = useContent();
+  const EVENT_TYPES = booking.eventTypes;
   const [f, setF] = useState({ name: '', type: '', date: '', venue: '', message: '' });
   const set = (k) => (e) => setF((s) => ({ ...s, [k]: e.target.value }));
 
@@ -44,7 +46,7 @@ export default function Booking() {
           <span className="label text-ink/60">
             <span className="text-signal">07</span> / Bookings
           </span>
-          <span className="label hidden text-ink/60 sm:block">Open for 2026–27</span>
+          {booking.availability && <span className="label hidden text-ink/60 sm:block">{booking.availability}</span>}
         </div>
         <Reveal as="h2" className="display mt-8 text-[clamp(3rem,11vw,10rem)]">
           Book SANCTÜS
@@ -54,8 +56,7 @@ export default function Booking() {
       <div className="gutter mx-auto mt-12 grid max-w-site gap-14 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">
           <p className="max-w-md text-lg leading-relaxed text-ink/70">
-            Club nights, house parties, sundowners, festivals, private events and guest mixes. Tell me
-            about the room and the crowd, and I'll build the set around it.
+            {booking.intro}
           </p>
 
           <dl className="mt-10">
