@@ -16,7 +16,7 @@ export const CONTACT = {
   phoneDisplay: '+91 96020 91364',
   phone: '+919602091364',
   whatsapp: '919602091364',
-  city: 'Jaipur, Rajasthan, IN',
+  city: 'Jaipur, India',
 };
 
 export const BIO = {
@@ -31,17 +31,17 @@ export const VENUES = [
   { name: 'Paro' },
   { name: 'Dyore' },
   { name: 'Savanna' },
+  { name: "Garrison's" },
   { name: 'HOP (House of People)' },
   { name: "D'SURA" },
-  { name: "Garrison's" },
 ];
 
 export const GENRES = [
   { name: 'House' },
+  { name: 'UK Bass' },
   { name: 'UK Garage' },
   { name: 'Drum & Bass' },
   { name: 'HardGroove' },
-  { name: 'UK Bass' },
   { name: 'Global Edits' },
 ];
 
