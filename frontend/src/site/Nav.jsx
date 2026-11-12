@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Download, Menu, X } from 'lucide-react';
 import { LINKS } from '../content';
 import { openBooking } from './BookSheet';
 
@@ -54,6 +54,15 @@ export default function Nav() {
           </ul>
 
           <div className="flex items-center gap-3">
+            <a
+              href={LINKS.presskit}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost hidden h-10 px-4 sm:inline-flex md:hidden lg:inline-flex"
+              aria-label="Download Presskit (opens in new tab)"
+            >
+              <Download size={14} /> Presskit
+            </a>
             <button onClick={openBooking} className="btn-primary hidden h-10 sm:inline-flex">
               Book
             </button>
@@ -104,6 +113,7 @@ export default function Nav() {
               ))}
             </ul>
             <div className="gutter mt-8 flex flex-wrap gap-x-6 gap-y-2">
+              <a className="label text-signal hover:text-bone" href={LINKS.presskit} target="_blank" rel="noopener noreferrer">Presskit ↓</a>
               <a className="label hover:text-signal" href={LINKS.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
               <a className="label hover:text-signal" href={LINKS.mixcloud} target="_blank" rel="noopener noreferrer">Mixcloud</a>
               <a className="label hover:text-signal" href={LINKS.soundcloud} target="_blank" rel="noopener noreferrer">SoundCloud</a>

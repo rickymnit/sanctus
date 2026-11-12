@@ -13,7 +13,7 @@ const SPANS = [
 
 export default function Gallery() {
   return (
-    <section id="gallery" className="py-24 md:py-36">
+    <section id="gallery" className="py-16 sm:py-24 md:py-36">
       <SectionHead index="06" label="Gallery" title="On the Floor" aside="Jaipur & around" />
 
       <div className="gutter mx-auto mt-12 grid max-w-site grid-cols-2 gap-2 md:grid-cols-12 md:gap-3">

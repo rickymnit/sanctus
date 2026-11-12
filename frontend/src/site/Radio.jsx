@@ -28,9 +28,9 @@ function Episode({ ep, active, onPlay }) {
       <span className="label hidden text-signal sm:block">EP {pad(ep.number)}</span>
 
       <div className="min-w-0">
-        <span className="label text-signal sm:hidden">EP {pad(ep.number)} · </span>
+        <span className="label block text-signal sm:hidden">EP {pad(ep.number)}</span>
         <button onClick={onPlay} className="block max-w-full text-left">
-          <h3 className="truncate text-lg font-semibold sm:text-2xl group-hover:text-signal transition-colors">{ep.name}</h3>
+          <h3 className="line-clamp-2 text-lg font-semibold leading-snug sm:truncate sm:text-2xl group-hover:text-signal transition-colors">{ep.name}</h3>
         </button>
         <p className="label mt-1 truncate normal-case tracking-normal">
           {formatDate(ep.created)} · {formatLength(ep.length)}
@@ -57,7 +57,7 @@ export default function Radio() {
   const isLatestPlaying = playing?.key === latest?.key;
 
   return (
-    <section id="radio" className="py-24 md:py-36">
+    <section id="radio" className="py-16 sm:py-24 md:py-36">
       <SectionHead index="04" label="Radio" aside="Mixcloud · YouTube" />
 
       <div className="gutter mx-auto mt-12 max-w-site">

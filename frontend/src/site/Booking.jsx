@@ -38,7 +38,7 @@ export default function Booking() {
   };
 
   return (
-    <section id="book" className="relative bg-bone py-24 text-ink md:py-36">
+    <section id="book" className="relative bg-bone py-16 sm:py-24 text-ink md:py-36">
       <header className="gutter mx-auto max-w-site">
         <div className="flex items-center justify-between border-t border-ink/15 pt-4">
           <span className="label text-ink/60">
@@ -65,11 +65,11 @@ export default function Booking() {
               ['WhatsApp', CONTACT.phoneDisplay, `https://wa.me/${CONTACT.whatsapp}`],
               ['Based', CONTACT.city, null],
             ].map(([k, v, href]) => (
-              <div key={k} className="grid grid-cols-3 gap-4 border-t border-ink/15 py-4">
+              <div key={k} className="grid grid-cols-[5.5rem_1fr] gap-4 border-t sm:grid-cols-3 border-ink/15 py-4">
                 <dt className="label pt-0.5 text-ink/60">{k}</dt>
-                <dd className="col-span-2 break-words font-medium">
+                <dd className="min-w-0 break-words sm:col-span-2 font-medium">
                   {href ? (
-                    <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="break-all hover:text-signal">
+                    <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="break-words hover:text-signal">
                       {v} <ArrowUpRight size={14} className="inline align-baseline" />
                     </a>
                   ) : (
@@ -134,10 +134,10 @@ export default function Booking() {
           </div>
 
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <button type="submit" className="btn h-14 flex-1 bg-ink text-bone hover:bg-signal hover:text-ink">
+            <button type="submit" className="btn h-14 w-full sm:w-auto sm:flex-1 bg-ink text-bone hover:bg-signal hover:text-ink">
               <MessageCircle size={16} /> Send via WhatsApp
             </button>
-            <button type="button" onClick={send('email')} className="btn h-14 flex-1 border border-ink/30 hover:border-ink hover:bg-ink hover:text-bone">
+            <button type="button" onClick={send('email')} className="btn h-14 w-full sm:w-auto sm:flex-1 border border-ink/30 hover:border-ink hover:bg-ink hover:text-bone">
               <Mail size={16} /> Send via Email
             </button>
           </div>

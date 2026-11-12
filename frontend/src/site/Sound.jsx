@@ -3,7 +3,7 @@ import { Reveal, SectionHead } from './ui';
 
 export default function Sound() {
   return (
-    <section id="sound" className="relative overflow-hidden bg-ink-2 py-24 md:py-36">
+    <section id="sound" className="relative overflow-hidden bg-ink-2 py-16 sm:py-24 md:py-36">
       <SectionHead index="03" label="Sound" title="The Sound" />
 
       <div className="gutter mx-auto mt-12 grid max-w-site gap-12 lg:grid-cols-12">

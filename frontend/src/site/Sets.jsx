@@ -51,7 +51,7 @@ export default function Sets() {
   }, [open]);
 
   return (
-    <section id="sets" className="bg-ink-2 py-24 md:py-36">
+    <section id="sets" className="bg-ink-2 py-16 sm:py-24 md:py-36">
       <SectionHead index="05" label="Sets" title="Recorded Sets" aside="Video" />
 
       <div className="gutter mx-auto mt-12 grid max-w-site gap-x-8 gap-y-14 md:grid-cols-12">
